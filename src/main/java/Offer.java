@@ -18,7 +18,7 @@ public interface Offer {
 
     public double getOfferPercentage(); //returns the percentage of the offer 
     
-    Date getStartDate();
+    public Date getStartDate();
 
-    Date getEndDate();
+    public Date getEndDate();
 }
