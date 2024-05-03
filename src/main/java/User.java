@@ -1,7 +1,7 @@
 import java.util.ArrayList; 
 public abstract class User {
-    String name;
-	String email;
+    String username;
+	//String email;
 	String password;
 	ArrayList<String> customers = new ArrayList<String>();
 	ArrayList<String> products = new ArrayList<String>();
