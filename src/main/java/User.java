@@ -9,6 +9,6 @@ public abstract class User {
 		if (products.contains(productID)) return true;
 		else return false;
 	}
-	public abstract boolean authenticate(String email,String password);
+	//public abstract boolean authenticate(String email,String password);
 
 }
