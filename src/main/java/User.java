@@ -1,12 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author hp
- */
+import java.util.ArrayList; 
 public abstract class User {
-    
+    String name;
+	String email;
+	String password;
+	ArrayList<String> customers = new ArrayList<String>();
+	ArrayList<String> products = new ArrayList<String>();
+    public boolean isProductAvailable(String productID) {
+		if (products.contains(productID)) return true;
+		else return false;
+	}
+	public abstract boolean authenticate(String email,String password);
+
 }
