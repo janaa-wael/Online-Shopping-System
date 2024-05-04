@@ -13,6 +13,8 @@ public abstract class Products implements Offer , Comparable<Products>{
     private double price;
     private int id;
     private String description;
+    private LocalDate startOfferDate;
+    private LocalDate endOfferDate;
     
     public Products(){
     }
@@ -22,6 +24,12 @@ public abstract class Products implements Offer , Comparable<Products>{
         this.price = price;
         this.id=id;
         this.description=description;
+    }
+
+    public Products(String name, double price, int id, String description, LocalDate startOfferDate, LocalDate endOfferDate) {
+        this(name,price,id,description);
+        this.startOfferDate = startOfferDate;
+        this.endOfferDate = endOfferDate;
     }
 
 
@@ -42,7 +50,11 @@ public abstract class Products implements Offer , Comparable<Products>{
         this.description = description;
     }
 
-    
+    public void setOfferDate(LocalDate startOfferDate,LocalDate endOfferDate){
+        this.startOfferDate=startOfferDate;
+        this.endOfferDate=endOfferDate;
+    }
+
     //getters
     public String getName() {
         return name;
@@ -63,32 +75,34 @@ public abstract class Products implements Offer , Comparable<Products>{
     
       // offer interface implementation
     @Override
-    public void displayDescription(){
-        System.out.println(this.getOfferPercentage() *100 +"% discount on "+ name);
+    public void displayOfferDescription(){
+        if(this.isOfferAvailable() == false)
+            System.out.println("There is no offer on this product");
+        else 
+            System.out.println(this.getOfferPercentage() *100 +"% discount on "+ name);
     }
     @Override
     public double  getPriceAfterDiscount(){
-        return ( price - price * this.getOfferPercentage() );
+        if(this.isOfferAvailable() == false) return price;
+        else return ( price - price * this.getOfferPercentage());
     }
     
     @Override
     public boolean isOfferAvailable(){
-        return this.getOfferPercentage() != 0;
+        LocalDate now = LocalDate.now();
+        if(startOfferDate==null)  return false;
+        else if(now.compareTo(startOfferDate) < 0  || now.compareTo(endOfferDate) > 0) return false;
+        else return this.getOfferPercentage() != 0;
     }
-  
-    @Override
-    public abstract double getOfferPercentage();
 
     @Override
     public LocalDate getStartDate(){
-        LocalDate currentDate = LocalDate.now();
-        return currentDate; 
+        return startOfferDate;    
     }
     
     @Override
     public LocalDate getEndDate(){
-        LocalDate dateAfterTwoWeeks = this.getStartDate().plusWeeks(2);
-        return dateAfterTwoWeeks;  
+      return endOfferDate;
     }
     
     
@@ -100,6 +114,7 @@ public abstract class Products implements Offer , Comparable<Products>{
         else if(price> p.price) return 1;
         else return -1;
     }
+    
     
     @Override
     public String toString(){
