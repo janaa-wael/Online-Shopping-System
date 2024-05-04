@@ -10,9 +10,9 @@
 
 import java.time.LocalDate;
 public interface Offer {
-    public void displayDescription(); //displays or prints description of the offer
+     public void displayOfferDescription(); //displays or prints description of the offer
 
-    public double  getPriceAfterDiscount(); //multiplies the price with the 
+    public double  getPriceAfterDiscount(); //returns the price after the discount 
 
     public boolean isOfferAvailable(); //checks whether the offer is available for the product or not
 
@@ -20,5 +20,5 @@ public interface Offer {
     
     public LocalDate getStartDate();   //returns the start date of the offer
 
-    public LocalDate getEndDate();     //returns the end date of the offer
+    public LocalDate getEndDate();  //returns the end date of the offer
 }
