@@ -8,7 +8,7 @@
  * @author hp
  */
 import java.time.LocalDate;
-public class Products implements Offer{
+public abstract class Products implements Offer , Comparable<Products>{
     private String name;
     private double price;
     private int id;
