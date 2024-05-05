@@ -19,15 +19,14 @@ public abstract class Products implements Offer , Comparable<Products>{
     public Products(){
     }
     
-    public Products(String name ,double price,int id ,String description){
+    public Products(String name ,double price,int id ){
         this.name = name;
         this.price = price;
         this.id=id;
-        this.description=description;
     }
 
-    public Products(String name, double price, int id, String description, LocalDate startOfferDate, LocalDate endOfferDate) {
-        this(name,price,id,description);
+    public Products(String name, double price, int id, LocalDate startOfferDate, LocalDate endOfferDate) {
+        this(name,price,id);
         this.startOfferDate = startOfferDate;
         this.endOfferDate = endOfferDate;
     }
