@@ -18,15 +18,12 @@ public class Admin extends User{
     final static int step = 1000;
     final static int base = 2000;
     
-    private void set_admin_name(String name)
+    private void set_admin_name(String username)
     {
-        super.name = name;
+        super.username = username;
     }
     
-    private void set_admin_email(String email)
-    {
-        super.email = email;
-    }
+    
     
     private void set_admin_password(String password)
     {
@@ -37,16 +34,8 @@ public class Admin extends User{
     {
         CustomersList = hm;
     }
-    private void setBase(int base)
-    {
-        this.base = base;
-    }
     
-    private void setStep(int step)
-    {
-        this.step = step;
-    }
-    
+
     private void setPercentages()
     {
         Scanner scanner = new Scanner(System.in);
@@ -68,7 +57,7 @@ public class Admin extends User{
     
     public String getName()
     {
-        return super.name;
+        return super.username;
     }
     
     public int getStep()
@@ -139,9 +128,11 @@ public class Admin extends User{
         int id = scanner.nextInt();
         p.setId(id);
         
-        System.out.println("Enter Product Style: ");
-        String style = scanner.nextLine();
-        p.setStyle(description);
+        p.printStyle();
+        String input_string = scanner.nextLine(); //choice
+        setStyle(input_string);
+    
+        products.add(p);
         
         products.add(p);
     }
@@ -220,7 +211,7 @@ public class Admin extends User{
 
     
     
-    }
+    
     
 }
 
