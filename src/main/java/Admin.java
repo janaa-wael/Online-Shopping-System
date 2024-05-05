@@ -5,7 +5,7 @@
 
 import java.util.HashMap;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 
 /**
  *
@@ -14,31 +14,73 @@ import java.util.Scanner;
 public class Admin extends User{
     
     private HashMap<String, String> CustomersList;
+    private ArrayList <Double> Percentages;
+    private int step;
+    private int base;
     
-    public void set_admin_name(String name)
+    private void set_admin_name(String name)
     {
         super.name = name;
     }
     
-    public void set_admin_email(String email)
+    private void set_admin_email(String email)
     {
         super.email = email;
     }
     
-    public void set_admin_password(String password)
+    private void set_admin_password(String password)
     {
         super.password = password;
     }
     
-    public void setCustomersList(HashMap<String,String> hm)
+    private void setCustomersList(HashMap<String,String> hm)
     {
         CustomersList = hm;
+    }
+    private void setBase(int base)
+    {
+        this.base = base;
+    }
+    
+    private void setStep(int step)
+    {
+        this.step = step;
+    }
+    
+    private void setPercentages()
+    {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        double p;
+        do
+        {
+            System.out.println("Would you like to add new percentages?1-Yes\n2-No");
+            choice = scanner.nextInt();
+           
+            if(choice==1)
+            {
+                System.out.println("Enter new percentage for the following range : " + (base+step*(Percentages.size())) + "-->" + (base+step*(Percentages.size()+1)));
+                p = scanner.nextDouble();
+                Percentages.add(p);
+            }
+        }while(choice==1);
     }
     
     public String getName()
     {
         return super.name;
     }
+    
+    public int getStep()
+    {
+        return step;
+    }
+    
+    public ArrayList<Double> getPercentages()
+    {
+        return Percentages;
+    }
+    
     
     public String getAdminPassword() //I don't whether the method is logical
     {
