@@ -12,6 +12,7 @@ public abstract class Products implements Offer , Comparable<Products>{
     private String name;
     private double price;
     private int id;
+    private String style;
     private String description;
     private LocalDate startOfferDate;
     private LocalDate endOfferDate;
