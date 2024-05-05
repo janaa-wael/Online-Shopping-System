@@ -15,8 +15,8 @@ public class Admin extends User{
     
     private HashMap<String, String> CustomersList;
     private ArrayList <Double> Percentages;
-    private int step;
-    private int base;
+    final static int step = 1000;
+    final static int base = 2000;
     
     private void set_admin_name(String name)
     {
@@ -130,10 +130,6 @@ public class Admin extends User{
     public void addProduct(Products p)
     {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter Product Nme: ");
-        String username = scanner.nextLine();
-        p.setName(username);
         
         System.out.println("Enter Product Price: ");
         int price = scanner.nextInt();
@@ -143,9 +139,9 @@ public class Admin extends User{
         int id = scanner.nextInt();
         p.setId(id);
         
-        System.out.println("Enter Product Description: ");
-        String description = scanner.nextLine();
-        p.setDescription(description);
+        System.out.println("Enter Product Style: ");
+        String style = scanner.nextLine();
+        p.setStyle(description);
         
         products.add(p);
     }
@@ -221,6 +217,11 @@ public class Admin extends User{
         return products.size();
     }
     
+
     
+    
+    }
     
 }
+
+
