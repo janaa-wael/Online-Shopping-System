@@ -5,8 +5,11 @@ public class Customer extends User{
 	ArrayList<Order> myOrders = new ArrayList<Order>();
 	boolean OrderConfirmed;
 	int numberOfOrders;
-	
-	public customers(String username,String password) {
+	public Customer(){
+		username="";
+		password="";
+	}
+	public Customer(String username,String password) {
 		this.username=username;
 		this.password=password;
 	};
