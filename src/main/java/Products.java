@@ -120,8 +120,7 @@ public abstract class Products implements Offer , Comparable<Products>{
     
     
     @Override
-    public String toString(){
-        return "Name: "+name+"\n"+"ID: "+id+"\n"+"Price: "+price+"\n"+"Description: "+description;
+   public String toString(){
+        return "Name: "+name+"\n"+"ID: "+id+"\n"+"Price: "+price+"\n"+"Style: "+style+"\n"+"Description: "+description;
     } 
-    
 }
