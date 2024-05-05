@@ -45,7 +45,9 @@ public abstract class Products implements Offer , Comparable<Products>{
     public void setDescription(String description) {
         this.description = description;
     }
-    
+    public void setStyle(String style){
+        this.style=style;
+    }
 
     public void setOfferDate(LocalDate startOfferDate,LocalDate endOfferDate){
         this.startOfferDate=startOfferDate;
@@ -68,6 +70,9 @@ public abstract class Products implements Offer , Comparable<Products>{
     
     public String getDescription() {
         return description;
+    }
+    public String getStyle(){
+        return style;
     }
     
       // offer interface implementation
