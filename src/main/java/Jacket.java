@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +25,7 @@ public class Jacket extends Denim{
 
     public Jacket( double price, int id, String color, String brand,String style,double width) {
         super(price, id, color, brand);
-       this. setStyle( style);
+       this.setStyle( style);
         this.width = width;
         setSize();
         
@@ -45,17 +40,29 @@ public class Jacket extends Denim{
      
      
 
-    public static void setQuantityinstock(Size size,Integer  Quantityinstock) {
+    public static void setOneQuantity(Size size,Integer  Quantityinstock) {
         Jacket.Quantityinstock .put(size, Quantityinstock);
     }
     
-    public static Integer getQuantityInStock(Size size){
+    public static Integer getOneQuantity(Size size){
         
         return Quantityinstock.get(size);
         
     }
-    
+
+    public static void setQuantityinstock(HashMap<Size, Integer> Quantityinstock) {
+        Jacket.Quantityinstock = Quantityinstock;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
    
+     public double getWidth() {
+        return width;
+    }
+    
+    
     private void putDescription(){
        switch (super.getStyle()) {
           case "cropped jacket" -> super.setDescription("Jacket that has the shorter length visually raises your waist and elongates your legs");
@@ -81,10 +88,7 @@ public class Jacket extends Denim{
   }    
 
    
-
-    public double getWidth() {
-        return width;
-    }
+   
 public static boolean availability(Size size){
     return (Quantityinstock.get(size)!=0);}
     
