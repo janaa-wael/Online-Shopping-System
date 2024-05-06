@@ -8,14 +8,17 @@
  * @author hp
  */
 import java.time.LocalDate;
+import java.util.HashMap;
 public abstract class Products implements Offer , Comparable<Products>{
     private String name;
     private double price;
-    private int id;
     private String style;
+    private int id;
     private String description;
     private LocalDate startOfferDate;
     private LocalDate endOfferDate;
+    
+    protected enum Size {XS,S,M,L,XL,XXL};
     
     public Products(){
     }
@@ -28,7 +31,6 @@ public abstract class Products implements Offer , Comparable<Products>{
         this.startOfferDate = startOfferDate;
         this.endOfferDate = endOfferDate;
     }
-
 
     // setters
     public void setName(String name) {
@@ -46,15 +48,15 @@ public abstract class Products implements Offer , Comparable<Products>{
     public void setDescription(String description) {
         this.description = description;
     }
-    public void setStyle(String style){
-        this.style=style;
-    }
 
     public void setOfferDate(LocalDate startOfferDate,LocalDate endOfferDate){
         this.startOfferDate=startOfferDate;
         this.endOfferDate=endOfferDate;
     }
-
+    public void setStyle(String style) {
+        this.style = style;
+    }
+    
     //getters
     public String getName() {
         return name;
@@ -72,9 +74,11 @@ public abstract class Products implements Offer , Comparable<Products>{
     public String getDescription() {
         return description;
     }
-    public String getStyle(){
+    public String getStyle() {
         return style;
     }
+    
+    public abstract void printStyles();
     
       // offer interface implementation
     @Override
@@ -120,7 +124,18 @@ public abstract class Products implements Offer , Comparable<Products>{
     
     
     @Override
-   public String toString(){
+    public String toString(){
         return "Name: "+name+"\n"+"ID: "+id+"\n"+"Price: "+price+"\n"+"Style: "+style+"\n"+"Description: "+description;
     } 
+    
+    
+    
+    public static int sumValues(HashMap<Size, Integer> map) {
+        int sum = 0;
+        for (int value : map.values()) {
+            sum += value;
+        }
+        return sum;
+    }
+    
 }
