@@ -35,12 +35,17 @@ public class SportPants extends Sportswear{
     }
     
     //method to set the quantity in stock of a certain size
-    public static void setQuantityInStock(Size size, int quantityInStock) {
+    public static void setOneQuantity(Size size, int quantityInStock) {
         SportPants.quantityInStock.put(size,quantityInStock);
     }
     
+    //method to set the hashmap ( setting the quantity in stock for all sizes )
+    public static void setQuantityInStock(HashMap<Size, Integer> quantityInStock) {
+        SportPants.quantityInStock = quantityInStock;
+    }
+    
     //method returns the quantity in stock of a certain size
-    public static Integer getQuantityInStock(Size size) {
+    public static Integer getOneQuantity(Size size) {
         return quantityInStock.get(size);
     }
     
@@ -83,12 +88,10 @@ public class SportPants extends Sportswear{
         super.setName(this.putName());
         super.setDescription( this.putDescription());
     }
-    
     //method determines if a certain size is available
     public static boolean availability(Size size){
         return (quantityInStock.get(size) !=0);
     }
-    
     //private method determines if there are pants in stock 
     //it's only used in toString method to return "in stock" and "out of stock" strings
     private String isInStock(){
