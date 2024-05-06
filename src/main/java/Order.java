@@ -4,16 +4,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 /**
  *
- * @author Dell
+ * @author Doaa Said
  */
-public class Order {
+public  class Order {
  private String ID;
  private Customer customer;
 private LocalDate shipping_date;
 private ArrayList<Products>productslist=new ArrayList<Products>();
-private double total_cost=0;
+private double totalCostbeforeoffer=0;
+private double totalCostafteroffer;
 String payment;
 private boolean isShipped;
+
 
     public Order(String ID,Customer customer, ArrayList<Products>productslist) {
         this.ID=ID;
@@ -21,7 +23,9 @@ private boolean isShipped;
        
         this.productslist=productslist;
         
-calculate_cost() ;  }
+calculate_costbeforeoffer(); 
+    calculate_costafteroffer();
+    }
 
     public String getID() {
         return ID;
@@ -37,12 +41,6 @@ calculate_cost() ;  }
         return shipping_date;
     }
 
-    public double getTotal_cost() {
-       
-        return total_cost;
-    }
-    
-    
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -52,13 +50,27 @@ calculate_cost() ;  }
         this.payment = payment;
     }
 
-  private void calculate_cost(){
+  private void calculate_costbeforeoffer(){
       for(int i=0;i<productslist.size();i++){
-          total_cost+=productslist.get(i).getPrice();
+         totalCostbeforeoffer+=productslist.get(i).getPriceAfterDiscount();
       
       }
 }
-      
+ private void calculate_costafteroffer(){
+     ArrayList<Double>offerpercentages=Admin.getPercentages();
+     
+   int index(totalCostbeforeoffer-Admin.getBase())/Admin.getStep();
+   
+     totalCostafteroffer=totalCostbeforeoffer-(offerpercentages.get(index)*totalCostbeforeoffer);
+      }     
+
+    public double getTotalCostbeforeoffer() {
+        return totalCostbeforeoffer;
+    }
+
+    public double getTotalCostafteroffer() {
+        return totalCostafteroffer;
+    }
   
     public ArrayList<Products> getProductslist() {
         return productslist;
@@ -75,16 +87,23 @@ calculate_cost() ;  }
 
     @Override
     public String toString() {
-        return customer.toString() + "ID=" + ID + ", shipping_date=" + shipping_date + ", productslist=" + productslist + ", total_cost=" + total_cost + ", payment=" + payment + ", isShipped=" + isShipped + '}';
+        return customer.toString() + "ID=" + ID +"\n"+ "shipping_date=" + shipping_date +"\n"+ " productslist=" + productslist +"\n"+ " totalCostbeforeoffer=" + totalCostbeforeoffer +"\n"+ "totalCostbeforeoffer=" + totalCostafteroffer +"\n"+" payment=" +"\n"+ payment +"\n";
     }
 
    
 
    
 
-  
+
 
     
+  
+    
+    
+    
+    
+}
+
   
     
     
