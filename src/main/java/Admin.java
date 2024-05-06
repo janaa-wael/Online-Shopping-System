@@ -6,6 +6,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -14,9 +15,12 @@ import java.util.ArrayList;
 public class Admin extends User{
     
     private HashMap<String, String> CustomersList;
-    private ArrayList <Double> Percentages;
+    private static ArrayList <Double> Percentages;
+    
     final static int step = 1000;
     final static int base = 2000;
+    
+    public enum Size {XS,S,M,L,XL,XXL};
     
     private void set_admin_name(String username)
     {
@@ -69,7 +73,8 @@ public class Admin extends User{
     {
         return base;
     }
-    public ArrayList<Double> getPercentages()
+
+    public static ArrayList<Double> getPercentages()
     {
         return Percentages;
     }
@@ -118,7 +123,7 @@ public class Admin extends User{
         CustomersList.remove(username);
         customers.remove(name);
     }
-    
+
     public void addProduct(Products p)
     {
         Scanner scanner = new Scanner(System.in);
@@ -139,6 +144,24 @@ public class Admin extends User{
         
         products.add(p);
     }
+    
+//    public void initializeStock(Products P)
+//    {
+//        Scanner scanner = new Scanner(System.in);
+//        Integer input;
+//         public void initializeStock(Products P)
+//   //List<Size>sizes=Arrays.asList(Size.values());
+//        if(P instanceof Pants)
+//        {
+//            for(int i = 1 ; i <= 6 ; i++)
+//            {
+//                input = scanner.nextInt();
+//                ((Pants)P).setQuantityinstock(,input);
+//            }
+//        }
+//        
+//    }
+//    
     
     public void removeProduct(Products p)
     {

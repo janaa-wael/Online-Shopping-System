@@ -56,8 +56,9 @@ calculate_costbeforeoffer();
       
       }
 }
- private void calculate_costafteroffer(){
-     ArrayList<Double>offerpercentages=Admin.getPercentages();
+  
+ private void calculate_costafteroffer(Admin A){
+     ArrayList<Double>offerpercentages=A.getPercentages();
      
    int index(totalCostbeforeoffer-Admin.getBase())/Admin.getStep();
    

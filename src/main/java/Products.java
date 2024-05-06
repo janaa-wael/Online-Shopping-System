@@ -18,7 +18,7 @@ public abstract class Products implements Offer , Comparable<Products>{
     private LocalDate startOfferDate;
     private LocalDate endOfferDate;
     
-    public enum Size {XS,S,M,L,XL,XXL};
+    public enum Size {XS ,S ,M,L,XL,XXL};
     
     public Products(){
     }
