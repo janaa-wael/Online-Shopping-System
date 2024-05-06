@@ -1,5 +1,4 @@
 
-package com.mycompany.shoppingcenter;
 import java.time.LocalDate;  
 import java.util.ArrayList;
 /**
@@ -56,11 +55,11 @@ calculate_costbeforeoffer();
       
       }
 }
-  
- private void calculate_costafteroffer(Admin A){
-     ArrayList<Double>offerpercentages=A.getPercentages();
+ private void calculate_costafteroffer(){
      
-   int index(totalCostbeforeoffer-Admin.getBase())/Admin.getStep();
+   ArrayList<Double>offerpercentages=Admin.getPercentages();
+     
+   int index=(int) ((totalCostbeforeoffer-Admin.getBase())/(Admin.getStep()));
    
      totalCostafteroffer=totalCostbeforeoffer-(offerpercentages.get(index)*totalCostbeforeoffer);
       }     
@@ -72,6 +71,10 @@ calculate_costbeforeoffer();
     public double getTotalCostafteroffer() {
         return totalCostafteroffer;
     }
+  
+  
+  
+  
   
     public ArrayList<Products> getProductslist() {
         return productslist;
@@ -95,6 +98,15 @@ calculate_costbeforeoffer();
 
    
 
+
+
+    
+  
+    
+    
+    
+    
+}
 
 
     
