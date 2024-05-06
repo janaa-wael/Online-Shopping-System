@@ -44,7 +44,7 @@ public class SportPants extends Sportswear{
         return quantityInStock.get(size);
     }
     
-    //private method sets the description of a product depending on its style 
+    //private method sets the description of a sport pants depending on its style 
     //it's called only in setStyle method to set the description once the style is set
     private String putDescription(){
         if(super.getStyle().equalsIgnoreCase("wide leg"))
@@ -57,7 +57,7 @@ public class SportPants extends Sportswear{
             return "Sport Sweatpants with line – High Waist - Side Pockets Drawstring Pants Women Sports wear";
     }
     
-    //private method sets the name of a product depending on its style 
+    //private method sets the name of a sport pants depending on its style 
     //it's called only in setStyle method to set the name once the style is set
     private String putName(){
         if(super.getStyle().equalsIgnoreCase("Leggings"))
