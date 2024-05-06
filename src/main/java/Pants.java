@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -20,9 +15,9 @@ public class Pants extends Denim {
       put(Size.XS, 70);
       put(Size.S, 80);
       put(Size.M, 40);         
-      put(Size.L, 90);  
+      put(Size.L, 20);  
+      put(Size.XL,40);
       put(Size.XL,50);
-      put(Size.XXL,0);
       
      }};
  
@@ -37,26 +32,16 @@ public Pants(double price,int id ,String color,String brand,String style,double 
   
   
  }
-  public static void setQuantityinstock(Size size,Integer  Quantityinstock) {
+  public static void setOneQuantity(Size size,Integer  Quantityinstock) {
         Pants.Quantityinstock .put(size, Quantityinstock);
     }
     
-    public static Integer getQuantityInStock(Size size){
+    public static Integer getOneQuantity(Size size){
         
         return Quantityinstock.get(size);
         
     }
-public static boolean availability(Size size){
-    return (Quantityinstock.get(size)!=0);}
-    
-    private String isInStock(){
-        if(Products.sumValues(Quantityinstock)==0)
-            return "Out of stock";
-        
-             else  return  "In stock";
-        
-        
-    }
+
     
   @Override
      public void setStyle(String Style) {
@@ -83,7 +68,22 @@ public static boolean availability(Size size){
         this.waist = waist;
     }
 
-  
+    public static void setQuantityinstock(HashMap<Size, Integer> Quantityinstock) {
+        Pants.Quantityinstock = Quantityinstock;
+    }
+
+  public static boolean availability(Size size){
+    return (Quantityinstock.get(size)!=0);}
+    
+    private String isInStock(){
+        if(Products.sumValues(Quantityinstock)==0)
+            return "Out of stock";
+        
+             else  return  "In stock";
+        
+        
+    }
+    
  
   
     private void putDescription(){
