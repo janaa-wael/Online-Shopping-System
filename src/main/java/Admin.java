@@ -74,7 +74,6 @@ public class Admin extends User{
         return Percentages;
     }
     
-    
     public String getAdminPassword() //I don't whether the method is logical
     {
         return super.password;
@@ -132,9 +131,9 @@ public class Admin extends User{
         int id = scanner.nextInt();
         p.setId(id);
         
-        p.printStyle();
+        p.printStyles();
         String input_string = scanner.nextLine(); //choice
-        setStyle(input_string);
+        p.setStyle(input_string);
     
         products.add(p);
         
@@ -211,10 +210,6 @@ public class Admin extends User{
     {
         return products.size();
     }
-    
-
-    
-    
     
     
 }
