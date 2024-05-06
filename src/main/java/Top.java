@@ -1,3 +1,7 @@
+
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,7 +9,7 @@
 
 /**
  *
- * @author hp
+ * @author Lenovo
  */
 import java.util.HashMap;
 import java.time.LocalDate;
@@ -25,21 +29,26 @@ public class Top extends Sportswear{
     //constructor to initialize the price, id, color, size and the style of the sport top
     public Top(double price, int id,String color ,String style,Size size ){
         super(price,id,color,size);
-        super.setStyle(style);
+        this.setStyle(style);
     }
     //constructor to initialize the price, id, startOfferDate, endOfferDate,color, size and the style of the sport top
     public Top(double price, int id, LocalDate startOfferDate, LocalDate endOfferDate ,String color ,String style,Size size ){
        super(price,id,startOfferDate,endOfferDate,color,size);
-       super.setStyle(style);
+       this.setStyle(style);
     }
 
     //method to set the quantity in stock of a certain size
-    public static void setQuantityInStock(Size size, int quantityInStock) {
+    public static void setOneQuantity(Size size, int quantityInStock) {
         Top.quantityInStock.put(size,quantityInStock);
     }
 
+    //method to set the hashmap ( setting the quantity in stock for all sizes )
+    public static void setQuantityInStock(HashMap<Size, Integer> quantityInStock) {
+        Top.quantityInStock = quantityInStock;
+    }
+
     //method returns the quantity in stock of a certain size
-    public static Integer getQuantityInStock(Size size) {
+    public static Integer getOneQuantity(Size size) {
         return quantityInStock.get(size);
     }
     
@@ -96,4 +105,3 @@ public class Top extends Sportswear{
     }
     
 }
-
