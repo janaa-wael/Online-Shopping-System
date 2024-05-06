@@ -60,11 +60,15 @@ public class Admin extends User{
         return super.username;
     }
     
-    public int getStep()
+    public static int getStep()
     {
         return step;
     }
     
+    public static int getBase()
+    {
+        return base;
+    }
     public ArrayList<Double> getPercentages()
     {
         return Percentages;
