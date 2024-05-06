@@ -1,3 +1,7 @@
+
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,9 +9,8 @@
 
 /**
  *
- * @author hp
+ * @author Lenovo
  */
-
 import java.time.LocalDate;
 import java.util.HashMap;
 public class SportPants extends Sportswear{
@@ -26,12 +29,12 @@ public class SportPants extends Sportswear{
     //constructor to initialize the price, id, color, size and the style of the sport pants
     public SportPants(double price, int id,String color ,String style,Size size ){
         super(price,id,color,size);
-        super.setStyle(style);
+        this.setStyle(style);
     }
     //constructor to initialize the price, id, startOfferDate, endOfferDate,color, size and the style of the sport pants
     public SportPants(double price, int id, LocalDate startOfferDate, LocalDate endOfferDate ,String color , String style,Size size){
         super(price,id,startOfferDate,endOfferDate,color,size);
-        super.setStyle(style);
+        this.setStyle(style);
     }
     
     //method to set the quantity in stock of a certain size
