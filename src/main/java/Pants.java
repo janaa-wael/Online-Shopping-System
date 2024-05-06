@@ -20,9 +20,9 @@ public class Pants extends Denim {
       put(Size.XS, 70);
       put(Size.S, 80);
       put(Size.M, 40);         
-      put(Size.L, 20);  
-      put(Size.XL,40);
+      put(Size.L, 90);  
       put(Size.XL,50);
+      put(Size.XXL,0);
       
      }};
  
