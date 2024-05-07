@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Lenovo
+ * @author Aziza
  */
 import java.time.LocalDate;
 public final class SportPants extends Sportswear{
