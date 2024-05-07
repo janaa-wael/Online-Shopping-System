@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,46 +6,21 @@
 
 /**
  *
- * @author hp
+ * @author Aziza
  */
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 public abstract class Sportswear extends Products{
-    private String color;
-    private Size size;
     
     //constructor to initialize the price, id, color and size of the sportwear
-    public Sportswear(double price,int id  ,String color,Size size){
-        super(price,id);
-        this.color=color;
-        this.size=size;
+    public Sportswear(double price,int id  ,String color){
+        super(price,id,color);
     }
     //constructor to initialize the price, id, color, size, startOfferDate and endOfferDate of the sportwear
-    public Sportswear( double price, int id, LocalDate startOfferDate, LocalDate endOfferDate ,String color ,Size size){
-        super(price,id,startOfferDate,endOfferDate);
-        this.color=color;
-        this.size=size;
+    public Sportswear( double price, int id, LocalDate startOfferDate, LocalDate endOfferDate ,String color){
+        super(price,id,startOfferDate,endOfferDate,color);
     }
-    // setters
-    //method to set the color of the product
-    public void setColor(String color) {
-        this.color = color;
-    }
-    //method to set the size of the product
-    public void setSize(Size size) {
-        this.size = size;
-    }
-    //getters
-    //method to get the color of the product
-    public String getColor() {
-        return color;
-    }
-    //method to get the size of the product
-    public Size getSize() {
-        return size;
-    }
-
     
     //method determine the percentage of the offer depending on the price of the product
     @Override
@@ -69,10 +45,11 @@ public abstract class Sportswear extends Products{
     @Override
     public String toString() {
         List<Size> arr=Arrays.asList(Size.values());
-        return super.toString() + "\n"+"color: "+color
+        return super.toString() 
                 +"\n"+"size: "+arr.get(0)+", "+arr.get(1)+", "+arr.get(2)+", "+arr.get(3)+", "+arr.get(4)+", "+arr.get(5)+", "+arr.get(6);
     }
     
     
 }
+
 
