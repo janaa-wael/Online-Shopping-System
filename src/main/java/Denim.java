@@ -8,34 +8,30 @@
  * @author Doaa Said
  */
 public abstract class  Denim extends Products {
-    private Size size;
-    private String color;
+  private Size customerSize;
+   
     private String brand;
 
 
    
       public Denim( double price,int id ,String color,String brand){
-      super(price,id);
-      this.color=color;
+      super(price,id,color);
+     
       this.brand=brand;
       
       }
 
-    public String getColor() {
-        return color;
-    }
+    
 
     public String getBrand() {
         return brand;
     }
     
-    public Size getSize() {
-        return size;
+    public Size getcustomerSize() {
+        return customerSize;
     }
       
-    public void setColor(String color) {
-        this.color = color;
-    }
+  
 
     public void setBrand(String brand) {
         this.brand = brand;
@@ -43,8 +39,8 @@ public abstract class  Denim extends Products {
 
   
 
-    public void setSize(Size size) {
-        this.size = size;
+    public void setcustomerSize(Size customerSize) {
+        this.customerSize = customerSize;
     }
 
  @Override
@@ -59,8 +55,10 @@ public abstract class  Denim extends Products {
 
     @Override
     public String toString() {
-        return super.toString() + "color=" + color +"\n" +" brand=" + brand +"\n";
+        return super.toString() +" brand=" + brand +"\n";
     }
    
      }
     
+    
+
