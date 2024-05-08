@@ -10,7 +10,8 @@
  */
 import java.time.LocalDate;
 public final class Top extends Sportswear{
-    
+    public Top() {
+    }
     //constructor to initialize the price, id, color, size and the style of the sport top
     public Top(double price, int id,String color ,String style){
         super(price,id,color);
