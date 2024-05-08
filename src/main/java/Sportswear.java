@@ -12,7 +12,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 public abstract class Sportswear extends Products{
-    
+    public Sportswear() {
+    }
     //constructor to initialize the price, id, color and size of the sportwear
     public Sportswear(double price,int id  ,String color){
         super(price,id,color);
