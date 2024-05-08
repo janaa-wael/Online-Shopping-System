@@ -1,3 +1,4 @@
+package com.mycompany.shoppingcenter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -10,16 +11,7 @@ public class Pants extends Denim {
   
   private double length;
   private double waist;
-  private static  HashMap<Size,Integer> Quantityinstock=new HashMap<>() {{
-         
-      put(Size.XS, 70);
-      put(Size.S, 80);
-      put(Size.M, 40);         
-      put(Size.L, 20);  
-      put(Size.XL,40);
-      put(Size.XL,50);
-      
-     }};
+ 
  
     
 public Pants(double price,int id ,String color,String brand,String style,double length,
@@ -28,23 +20,16 @@ public Pants(double price,int id ,String color,String brand,String style,double 
   this.setStyle(style);
   this.length=length;
   this.waist=waist;
-   setSize();
+    setcustomerSize();
   
   
  }
-  public static void setOneQuantity(Size size,Integer  Quantityinstock) {
-        Pants.Quantityinstock .put(size, Quantityinstock);
-    }
-    
-    public static Integer getOneQuantity(Size size){
-        
-        return Quantityinstock.get(size);
-        
-    }
+  
 
     
+
   @Override
-     public void setStyle(String Style) {
+     public void setStyle(String Style) throws StyleException {
         super.setStyle(Style);
         super.setName(" Denim Pants");
          putDescription();
@@ -68,21 +53,7 @@ public Pants(double price,int id ,String color,String brand,String style,double 
         this.waist = waist;
     }
 
-    public static void setQuantityinstock(HashMap<Size, Integer> Quantityinstock) {
-        Pants.Quantityinstock = Quantityinstock;
-    }
-
-  public static boolean availability(Size size){
-    return (Quantityinstock.get(size)!=0);}
-    
-    private String isInStock(){
-        if(Products.sumValues(Quantityinstock)==0)
-            return "Out of stock";
-        
-             else  return  "In stock";
-        
-        
-    }
+   
     
  
   
@@ -98,17 +69,17 @@ public Pants(double price,int id ,String color,String brand,String style,double 
       }
     
     }
-  private void setSize(){
+  private void setcustomerSize(){
       if(length<32&&waist<32)
-          super.setSize(Size.XS);
+          super.setcustomerSize(Size.XS);
       else if(length<32&&waist>32&&waist<34)
-      super.setSize(Size.S);
+      super.setcustomerSize(Size.S);
       else if(length<34&&waist>34&&waist<38)
-     super.setSize(Size.M);
+     super.setcustomerSize(Size.M);
        else if(length<34&&waist>38&&waist<42)
-          super.setSize(Size.L);  
+          super.setcustomerSize(Size.L);  
          else if(length<34&&waist>42&&waist<44)
-          super.setSize(Size.XL);
+          super.setcustomerSize(Size.XL);
       
   }  
     
@@ -122,7 +93,7 @@ public Pants(double price,int id ,String color,String brand,String style,double 
                 +"if waist is between 34 and 38 and length is less than 34: optimum size is"+sizes.get(2)+"\n"
                 +"if width is between 38 and 42 and length is less than 34: optimum size is"+sizes.get(3)+"\n"
                 +"if width is between 42 and 44 and length is less than 34: optimum size is"+sizes.get(4)+"\n"
-                +"Availability:"+isInStock()+"\n";
+              ;
        
        
     }
