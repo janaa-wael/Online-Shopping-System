@@ -26,12 +26,13 @@ public class Customer extends User {
 	}
 
 	public void addToCart(Products product , int quantity,Products.Size size) {
-		if(quantity<product.getOneQuantity(size)) {System.out.println("Quantity available = "+product.getOneQuantity(size));}
-		else{while(quantity>product.getOneQuantity(size)) {
+		if(quantity>product.getOneQuantity(size)) {System.out.println("Quantity available = "+product.getOneQuantity(size));}
+		else{product.setOneQuantity(size,product.getOneQuantity(size)-quantity );
+		while(quantity>0) {
 		cart.add(product);
 		quantity--;
 		}
-		product.setOneQuantity(size,product.getOneQuantity(size)-quantity );
+		
 		}
 	}
 	
