@@ -1,6 +1,8 @@
+package javaproject;
 
-public class Customer extends User{
-    	
+import java.util.ArrayList;
+
+public class Customer extends User {
 	ArrayList<Products> cart = new ArrayList<Products>();
 	ArrayList<Order> myOrders = new ArrayList<Order>();
 	boolean OrderConfirmed;
@@ -23,18 +25,21 @@ public class Customer extends User{
 		OrderConfirmed = orderConfirmed;
 	}
 
-	public void addToCart(Products product , int quantity) {
-		while(quantity>0) {
+	public void addToCart(Products product , int quantity,Products.Size size) {
+		if(quantity<product.getOneQuantity(size)) {System.out.println("Quantity available = "+product.getOneQuantity(size));}
+		else{while(quantity>product.getOneQuantity(size)) {
 		cart.add(product);
 		quantity--;
 		}
+		}
 	}
 	
-	public void removeFromCart(Products product,int quantity) {
-		while(quantity>0) {
+	public void removeFromCart(Products product,int quantity,Products.Size size) {
+		try{while(quantity>0) {
 			cart.remove(product);
 			quantity--;
-			}
+			}}
+		catch(Exception ex) {}
 	}
 	
 	public ArrayList<Products> getCart() {
@@ -51,9 +56,5 @@ public class Customer extends User{
 		else System.out.println("Please confirm your order");
 		
 	}
-	
-	
-	
-	
 	
 }
