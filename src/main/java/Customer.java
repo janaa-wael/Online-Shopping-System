@@ -1,4 +1,4 @@
-package javaproject;
+
 
 import java.util.ArrayList;
 
@@ -31,14 +31,18 @@ public class Customer extends User {
 		cart.add(product);
 		quantity--;
 		}
+		product.setOneQuantity(size,product.getOneQuantity(size)-quantity );
 		}
 	}
 	
 	public void removeFromCart(Products product,int quantity,Products.Size size) {
-		try{while(quantity>0) {
+		try{product.setOneQuantity(size,product.getOneQuantity(size)+quantity );
+		while(quantity>0) {
 			cart.remove(product);
 			quantity--;
-			}}
+			}
+		
+		}
 		catch(Exception ex) {}
 	}
 	
