@@ -12,7 +12,7 @@ private LocalDate shipping_date;
 private ArrayList<Products>productslist=new ArrayList<Products>();
 private double totalCostbeforeoffer=0;
 private double totalCostafteroffer;
-private String payment;
+String payment;
 private boolean isShipped;
 
 
@@ -95,19 +95,8 @@ calculate_costbeforeoffer();
 
     @Override
     public String toString() {
-        return customer.toString() + "ID=" + ID +"\n"+ "shipping_date=" + shipping_date +"\n"+ " productslist=" + productslist +"\n"+ " totalCostbeforeoffer=" + totalCostbeforeoffer +"\n"+ "totalCostbeforeoffer=" + totalCostafteroffer +"\n"+" payment=" +"\n"+ payment +"\n";
+        return this.customer.username + "ID=" + ID +"\n"+ "shipping_date=" + shipping_date +"\n"+ " productslist=" + productslist +"\n"+ " totalCostbeforeoffer=" + totalCostbeforeoffer +"\n"+ "totalCostbeforeoffer=" + totalCostafteroffer +"\n"+" payment=" +"\n"+ payment +"\n";
     }
 
    
-
-   
-
-
-
-    
-  
-    
-    
-    
-    
 }
