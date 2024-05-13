@@ -2,17 +2,27 @@
  *
  * @author Doaa Said
  */
+package com.mycompany.shoppingcenter;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Doaa Said
+ */
 public class Jacket extends Denim{
    
     private double width;
     
   
 
-    public Jacket( double price, int id, String color, String brand,String style,double width) {
+    public Jacket( double price, int id, String color, String brand,String style) {
         super(price, id, color, brand);
        this.setStyle( style);
-        this.width = width;
-        setcustomerSize();
+       
+       
         
     }
      @Override
@@ -42,9 +52,18 @@ public class Jacket extends Denim{
     
     
 }}
+  public void setcustomerSize(){
+        
+        System.out.println("Enter your length and width:");
+     Scanner input=new  Scanner(System.in);
     
+       double w=input.nextDouble();
     
-    private void setcustomerSize(){
+        this.setWidth(w);  
+        
+        
+        
+        
       if(width<32)
           super.setcustomerSize(Size.XS);
       else if(width>32&&width<34)
