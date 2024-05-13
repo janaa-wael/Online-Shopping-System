@@ -16,6 +16,16 @@ public class Admin extends User{
     
     private HashMap<String, String> CustomersList;
     private static ArrayList <Double> Percentages;
+    public Admin(){
+        CustomersList=new HashMap<>();
+        initializeCredentials();
+    }
+    public void initializeCredentials(){
+        CustomersList.put("user","1234");
+    }
+    public boolean authenticateCredentials(String username,String password){
+        return (CustomersList.containsKey(username)&&CustomersList.get(username).equals(password));
+    }
     
     final static int step = 1000;
     final static int base = 2000;
