@@ -79,12 +79,12 @@ public class Admin extends User{
         return Percentages;
     }
     
-    public String getAdminPassword() //I don't whether the method is logical
+    private String getAdminPassword() //I don't whether the method is logical
     {
         return super.password;
     }
     
-    public HashMap<String,String> getCustomersList()
+    private HashMap<String,String> getCustomersList()
     {
         return CustomersList;
     }
