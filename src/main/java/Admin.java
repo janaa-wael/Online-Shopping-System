@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -102,16 +103,28 @@ public class Admin extends User{
     public void addUser()
     {
         Scanner scanner = new Scanner(System.in);
+        String name = "" , username = "" , user_password = "";
         
-        System.out.println("Enter Customer Name : ");
-        String name = scanner.nextLine();
+        boolean flag = true;
+        do{
+            try{
+            System.out.println("Enter Customer Name : ");
+            name = scanner.nextLine();
         
-        System.out.println("Enter Customer Username : ");
-        String username = scanner.nextLine();
+            System.out.println("Enter Customer Username : ");
+            username = scanner.nextLine();
        
-        System.out.println("Enter Customer Password : ");
-        String user_password = scanner.nextLine();
-       
+            System.out.println("Enter Customer Password : ");
+            user_password = scanner.nextLine();
+      
+            }
+            catch(InputMismatchException i)
+            {
+                System.out.println("Incorrect datatype");
+                flag = false;
+            }
+        }while(flag==false);
+        
         CustomersList.put(username, user_password);
         customers.add(name);
     }
@@ -137,19 +150,32 @@ public class Admin extends User{
     public void addProduct(Products p)
     {
         Scanner scanner = new Scanner(System.in);
+        int price = 0 , id = 0;
+        String input_string = "";
+        boolean flag = true;
+        do
+        {
+            
+            try{
+                System.out.println("Enter Product Price: ");
+                price = scanner.nextInt();
+                p.setPrice(price);
         
-        System.out.println("Enter Product Price: ");
-        int price = scanner.nextInt();
-        p.setPrice(price);
+                System.out.println("Enter Product Id: ");
+                id = scanner.nextInt();
+                p.setId(id);
         
-        System.out.println("Enter Product Id: ");
-        int id = scanner.nextInt();
-        p.setId(id);
-        
-        p.printStyles();
-        String input_string = scanner.nextLine(); //choice
-        p.setStyle(input_string);
-    
+                p.printStyles();
+                input_string = scanner.nextLine(); //choice
+                p.setStyle(input_string);
+            }
+            catch(InputMismatchException i)
+            {
+                System.out.println("Incorrect datatype");
+                flag = false;
+            }
+            
+        }while(flag == false);
         products.add(p);
         
         products.add(p);
