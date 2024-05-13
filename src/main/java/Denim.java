@@ -45,9 +45,9 @@ public abstract class  Denim extends Products {
 
  @Override
   public double getOfferPercentage(){
-    if(this.getPrice()<1500&&this.getPrice()>1000)  
+    if(this.getPrice()>1500)  
       return 0.3;
-    else if(this.getPrice()<1000&&this.getPrice()>600)
+    else if(this.getPrice()<1500&&this.getPrice()>600)
       return 0.2;
     else
         return 0;
@@ -55,7 +55,7 @@ public abstract class  Denim extends Products {
 
     @Override
     public String toString() {
-        return super.toString() +" brand=" + brand +"\n";
+        return super.toString()+ "\n"+" brand: " + brand +"\n";
     }
    
      }
