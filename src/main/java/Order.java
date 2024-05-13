@@ -85,8 +85,12 @@ calculate_costbeforeoffer();
     }
 
     public boolean isIsShipped() {
+        LocalDate now = LocalDate.now();
+          if(now.compareTo(getShipping_date()) < 0) return false;
+        //if getOfferPercentage returns 0, there is no offer on this product
+        else return true;
         
-        return isShipped;
+       
     }
 
     @Override
@@ -101,22 +105,6 @@ calculate_costbeforeoffer();
 
 
     
-  
-    
-    
-    
-    
-}
-
-
-    
-  
-    
-    
-    
-    
-}
-
   
     
     
