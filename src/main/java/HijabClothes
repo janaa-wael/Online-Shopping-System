@@ -15,14 +15,14 @@ import java.util.List;
 public abstract class HijabClothes extends Products implements Offer {
     
     // constructors
-    HijabClothes(){
+    public HijabClothes(){
     }
     
-    HijabClothes(double price,int id, String color){
+    public HijabClothes(double price,int id, String color){
         super(price, id, color);
     }
     
-    HijabClothes(double price, int id, LocalDate startOfferDate, LocalDate endOfferDate,String color){
+    public HijabClothes(double price, int id, LocalDate startOfferDate, LocalDate endOfferDate,String color){
         super(price, id, startOfferDate, endOfferDate, color);
     }
     
@@ -50,3 +50,4 @@ public abstract class HijabClothes extends Products implements Offer {
                 +"\n"+"size: "+arr.get(0)+", "+arr.get(1)+", "+arr.get(2)+", "+arr.get(3)+", "+arr.get(4)+", "+arr.get(5)+", "+arr.get(6);
     }
 }
+
