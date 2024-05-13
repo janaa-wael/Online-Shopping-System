@@ -157,10 +157,15 @@ public class Admin extends User{
         {
             
             try{
-                System.out.println("Enter Product Price: ");
-                price = scanner.nextInt();
-                p.setPrice(price);
-        
+                try{
+                    System.out.println("Enter Product Price: ");
+                    price = scanner.nextInt();
+                    p.setPrice(price);
+                }
+                catch(NegativeMoneyAmountException e)
+                {
+                    e.getMessage();
+                }
                 System.out.println("Enter Product Id: ");
                 id = scanner.nextInt();
                 p.setId(id);
