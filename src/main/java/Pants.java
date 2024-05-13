@@ -1,4 +1,5 @@
 package com.mycompany.shoppingcenter;
+import java.util.Scanner;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -14,13 +15,12 @@ public class Pants extends Denim {
  
  
     
-public Pants(double price,int id ,String color,String brand,String style,double length,
- double waist){
+public Pants(double price,int id ,String color,String brand,String style){
   super(price,id,color,brand);
   this.setStyle(style);
-  this.length=length;
-  this.waist=waist;
-    setcustomerSize();
+  
+ 
+         
   
   
  }
@@ -29,7 +29,7 @@ public Pants(double price,int id ,String color,String brand,String style,double 
     
 
   @Override
-     public void setStyle(String Style) throws StyleException {
+     public void setStyle(String Style)  {
         super.setStyle(Style);
         super.setName(" Denim Pants");
          putDescription();
@@ -60,16 +60,24 @@ public Pants(double price,int id ,String color,String brand,String style,double 
     private void putDescription(){
       switch (super.getStyle()) {
           case "Skini jeans" -> super.setDescription("Trouser with a high degree of tightness and can be with different landings - both high and low. It is sewn from stretch material with the addition of elastane, which ensures a flawless fit");
-          case "Mom jeans" -> super.setDescription("Trouser with astraight free cut with a high fit and an accent in the hip area. The leg below may be straight or narrowed, but it never hugs the lower leg");
+          case "Mom jeans" -> super.setDescription("Trouser with astraight free cut with a high fit and an accent in the hip area."
+                  + " The leg below may be straight or narrowed, but it never hugs the lower leg");
           case "Straight jeans" -> super.setDescription("Trouser with  a perfectly straight cut. With the right size, they sit perfectly on any type of figure, do not emphasize the shortcomings");
           case "Cargo pants" -> super.setDescription("functional pant with a loose fit designed to allow for freedom of movement, especially at the knees and hips. Its fabric is traditionally sturdy cotton or cotton-wool blend that can withstand rigorous wear and harsh elements");
-          case "Wide-leg jeans" -> super.setDescription("loose-fitting Trouser that has a wide and flowy silhouette, starting from the waist and extending down to the hem, offering a relaxed and comfortable fit");
+          case "Wide-leg jeans" -> super.setDescription("loose-fitting Trouser that has a wide and flowy silhouette,"+"\n"+ "starting from the waist and extending down to the hem, offering a relaxed and comfortable fit");
           default -> {
           }
       }
     
     }
-  private void setcustomerSize(){
+ public void setcustomerSize(){
+     System.out.println("Enter your length and width:");
+     Scanner input=new  Scanner(System.in);
+     double l=input.nextDouble();
+       double w=input.nextDouble();
+       this.setLength(l);
+        this.setWaist(w);
+              
       if(length<32&&waist<32)
           super.setcustomerSize(Size.XS);
       else if(length<32&&waist>32&&waist<34)
@@ -89,10 +97,10 @@ public Pants(double price,int id ,String color,String brand,String style,double 
      List<Size>sizes=Arrays.asList(Size.values());
         return super.toString() +"if waist and length is smaller than 32: optimum size is "+sizes.get(0)+"\n"
                
-                +"if waist is between 32 and 34 and length is less than 32: optimum size is"+sizes.get(1)+"\n"
-                +"if waist is between 34 and 38 and length is less than 34: optimum size is"+sizes.get(2)+"\n"
-                +"if width is between 38 and 42 and length is less than 34: optimum size is"+sizes.get(3)+"\n"
-                +"if width is between 42 and 44 and length is less than 34: optimum size is"+sizes.get(4)+"\n"
+                +"if waist is between 32 and 34 and length is less than 32: optimum size is "+sizes.get(1)+"\n"
+                +"if waist is between 34 and 38 and length is less than 34: optimum size is "+sizes.get(2)+"\n"
+                +"if width is between 38 and 42 and length is less than 34: optimum size is "+sizes.get(3)+"\n"
+                +"if width is between 42 and 44 and length is less than 34: optimum size is "+sizes.get(4)+"\n"
               ;
        
        
@@ -111,3 +119,6 @@ System.out.println("""
 }
 
 }
+
+
+
