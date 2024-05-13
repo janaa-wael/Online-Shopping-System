@@ -61,9 +61,7 @@ public class Customer extends User {
 
     public void addOrder(Order order) {
         try {
-            if (!OrderConfirmed) {
-                throw new IllegalStateException("Please confirm your order before adding.");
-            }
+        
             myOrders.add(order);
             cart.clear();
             numberOfOrders++;
