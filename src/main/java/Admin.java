@@ -157,15 +157,20 @@ public class Admin extends User{
         {
             
             try{
-                try{
-                    System.out.println("Enter Product Price: ");
-                    price = scanner.nextInt();
-                    p.setPrice(price);
-                }
-                catch(NegativeMoneyAmountException e)
+                do
                 {
-                    e.getMessage();
-                }
+                    try{
+                        System.out.println("Enter Product Price: ");
+                        price = scanner.nextInt();
+                        p.setPrice(price);
+                        flag = true;
+                    }
+                     catch(NegativeMoneyAmountException e)
+                    {
+                        flag = false;
+                        e.getMessage();
+                    }
+                }while(flag == false);
                 System.out.println("Enter Product Id: ");
                 id = scanner.nextInt();
                 p.setId(id);
@@ -255,13 +260,22 @@ public class Admin extends User{
     public boolean authenticate()
     {
         Scanner scanner = new Scanner(System.in);
-             
-        System.out.println("Enter username: ");
-        String username = scanner.nextLine();
+        boolean flag = true;
+        do
+        {
+            try{
+            System.out.println("Enter username: ");
+            String username = scanner.nextLine();
             
-        System.out.println("Enter password: ");
-        String password = scanner.nextLine();
-        
+            System.out.println("Enter password: ");
+            String password = scanner.nextLine();
+            }
+            catch(InputMismatchException i)
+            {
+              flag = false;
+              System.out.println("Invalid data entered, please rewrite again");
+            }
+        }while(flag == false);
         return (CustomersList.get(username)).equals(password); 
     }
     
