@@ -12,7 +12,7 @@ private LocalDate shipping_date;
 private ArrayList<Products>productslist=new ArrayList<Products>();
 private double totalCostbeforeoffer=0;
 private double totalCostafteroffer;
-String payment;
+private String payment;
 private boolean isShipped;
 
 
